@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by anonymous (http://jsbin.com/qirifadiyu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>test</title>
+<style id="jsbin-css">
+*{margin: 0; padding: 0;}
+.box{padding: 10px;}
+.box img{display: block; width: 15rem; height: 7.5rem; margin: 0 auto;}
+</style>
+</head>
+<body>
+    <div class="box">
+        <img src="http://ww3.sinaimg.cn/mw690/69243898gw1emmeiydzvrj20go08cglu.jpg" alt="">
+        文字文字文字文字文字文字文
+    </div>
+<script id="jsbin-javascript">
+;(function(win){
+    var docEl = document.documentElement,
+        timer = null,
+        rem;
+
+    function setUnit(){
+        rem = docEl.getBoundingClientRect().width / 16;
+        docEl.style.fontSize = rem + 'px';
+    }
+
+    win.addEventListener('resize', function() {
+        clearTimeout(timer);
+        timer = setTimeout(setUnit, 300);
+    }, false);
+    win.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            clearTimeout(timer);
+            timer = setTimeout(setUnit, 300);
+        }
+    }, false);
+
+    setUnit();
+})(window);
+</script>
+</body>
+</html>
